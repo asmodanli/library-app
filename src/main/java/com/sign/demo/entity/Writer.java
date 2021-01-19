@@ -1,0 +1,67 @@
+package com.sign.demo.entity;
+
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "writer")
+public class Writer {
+
+    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "writer", cascade = {
+            CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.REFRESH})
+    private List<Book> books;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    public Writer() {}
+
+    public Writer(String firstName, String lastName, List<Book> books) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.books = books;
+    }
+}
