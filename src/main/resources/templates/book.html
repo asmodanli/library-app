@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Operations</title>
+</head>
+<body>
+
+    <div class="container">
+        <p class="h4 mb-4">Save Books</p>
+
+        <form action="#" th:action="@{/books/save}"
+              th:object="${book}" method="post">
+
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-group">
+                <label for="name" class="control-label">Name</label>
+                <input type="text" id="name" class="form-control" th:field="*{name}" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="isbn" class="control-label">ISBN</label>
+                <input type="text" id="isbn" class="form-control" th:field="*{isbn}" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="genre" class="control-label">Genre</label>
+                <select id="genre" class="form-control" th:field="*{genre}">
+                    <option th:value="Fantastic" th:text="Fantastic"></option>
+                    <option th:value="Autobiography" th:text="Autobiography"></option>
+                    <option th:value="Biography" th:text="Biography"></option>
+                    <option th:value="History" th:text="History"></option>
+                    <option th:value="Drama" th:text="Drama"></option>
+                    <option th:value="Poetry" th:text="Poetry"></option>
+                    <option th:value="Science fiction" th:text="Science fiction"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="numberOfPages" class="control-label">Page Number</label>
+                <input type="text" id="numberOfPages" class="form-control" th:field="*{numberOfPages}" />
+            </div>
+
+            <div class="form-group">
+                <label for="writer" class="control-label">Writer id</label>
+                <input type="text" id="writer" class="form-control" th:field="*{writer}" />
+            </div>
+
+            <button type="submit" class="btn btn-info col-2">Save </button>
+
+        </form>
+    </div>
+
+
+</body>
+</html>
