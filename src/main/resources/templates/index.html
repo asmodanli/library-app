@@ -36,11 +36,20 @@
 <br>
 <br>
 <div class="container">
-    <h2>User Registration and Login Module using Spring Boot, Spring MVC, Spring Security, JPA/Hibernate and Thymeleaf</h2>
 
     <p>
         Welcome <span sec:authentication="principal.username">User</span>
     </p>
+
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <p>This content is only shown to administrators</p>
+        <span><a href="/" th:href="@{/book}">Click here </a>for transactions related to books</span>
+    </div>
+
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <p>This content is only shown to users</p>
+    </div>
+
 </div>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
