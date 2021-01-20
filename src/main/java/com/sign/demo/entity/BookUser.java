@@ -7,13 +7,15 @@ import java.util.Date;
 @Table(name = "book_user")
 public class BookUser {
 
+    @EmbeddedId
+    private BookUserId id;
 
-    @Id
+    @MapsId("bookId")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book books;
 
-    @Id
+    @MapsId("userId")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User users;
