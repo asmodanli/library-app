@@ -23,5 +23,5 @@ public class MainController {
     }
 
     @GetMapping("/book")
-    public String book() { return "book"; }
+    public String book() { return "books/book"; }
 }
