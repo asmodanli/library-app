@@ -22,6 +22,6 @@ public class MainController {
         return "user/index";
     }
 
-    @GetMapping("/book")
+    @GetMapping("/admin/book")
     public String book() { return "books/book"; }
 }
