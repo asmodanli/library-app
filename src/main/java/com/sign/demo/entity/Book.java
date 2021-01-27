@@ -16,7 +16,7 @@ public class Book {
     private String genre;
 
     @Column(name = "isbn")
-    private long isbn;
+    private String isbn;
 
 
     @Column(name = "name")
@@ -44,11 +44,11 @@ public class Book {
         this.id = id;
     }
 
-    public long getIsbn() {
+    public String  getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(long isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -86,7 +86,7 @@ public class Book {
 
     public Book() {}
 
-    public Book(int isbn, String name, int numberOfPages, String genre, Writer writer) {
+    public Book(String  isbn, String name, int numberOfPages, String genre, Writer writer) {
         this.isbn = isbn;
         this.name = name;
         this.numberOfPages = numberOfPages;
