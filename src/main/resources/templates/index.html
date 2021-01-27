@@ -43,7 +43,7 @@
 
     <div sec:authorize="hasRole('ROLE_ADMIN')">
         <p>This content is only shown to administrators</p>
-        <span><a href="/" th:href="@{/book}">Click here </a>for transactions related to books</span>
+        <span><a href="/" th:href="@{/admin/listBooks}">Click here </a>for transactions related to books</span>
     </div>
 
     <div sec:authorize="hasRole('ROLE_USER')">
