@@ -3,14 +3,14 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Book Operations</title>
+    <title>Library Operations</title>
 </head>
 <body>
 
     <div class="container my-2">
         <h1>Books List</h1>
 
-        <a th:href="@{/showNewBookForm}" class="btn btn-primary btn-sm mb-3"> Add New Book </a>
+        <a th:href="@{/admin/showNewBookForm}" class="btn btn-primary btn-sm mb-3"> Add New Book </a>
 
         <table border="1" class="table table-striped table-responsive-md">
             <thead>
@@ -24,14 +24,13 @@
             </thead>
             <tbody>
                 <tr th:each="book: ${listBooks}">
-                    <td th:text="${book.Name}"></td>
-                    <td th:text="${book.ISBN}"></td>
-                    <td th:text="${book.Genre}"></td>
+                    <td th:text="${book.name}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td th:text="${book.genre}"></td>
                     <td th:text="${book.numberOfPages}"></td>
-                    <td th:text="${book.writer}"></td>
                     <td>
-                        <a th:href="@{/showFormForUpdate/{id}(id=${book.id})}" class="btn btn-primary">Update</a>
-                        <a th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>
+                        <a th:href="@{/admin/showFormForUpdate/{id}(id=${book.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/admin/deleteBook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>
