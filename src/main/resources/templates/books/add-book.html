@@ -1,44 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="ISO-8859-1">
-    <title>Book Management System</title>
+    <title>Library Management System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
 
+<body>
 <div class="container">
-    <h1>Book Management System</h1>
+    <h1>Library Management System</h1>
     <hr>
     <h2>Save Book</h2>
-    <form action="#" th:action="@{/books/saveBook}"
-          th:object="${book}" method="post">
 
-        <input type="hidden" th:field="*{id}">
+    <form action="#" th:action="@{/admin/saveBook}" th:object="${book}" method="POST">
 
         <div class="form-group">
             <label for="name" class="control-label">Name</label>
             <input type="text" id="name" class="form-control" th:field="*{name}" />
         </div>
 
-
         <div class="form-group">
             <label for="isbn" class="control-label">ISBN</label>
             <input type="text" id="isbn" class="form-control" th:field="*{isbn}" />
-        </div>
-
-
-        <div class="form-group">
-            <label for="genre" class="control-label">Genre</label>
-            <select id="genre" class="form-control" th:field="*{genre}">
-                <option th:value="Fantastic" th:text="Fantastic"></option>
-                <option th:value="Autobiography" th:text="Autobiography"></option>
-                <option th:value="Biography" th:text="Biography"></option>
-                <option th:value="History" th:text="History"></option>
-                <option th:value="Drama" th:text="Drama"></option>
-                <option th:value="Poetry" th:text="Poetry"></option>
-                <option th:value="Science fiction" th:text="Science fiction"></option>
-            </select>
         </div>
 
         <div class="form-group">
@@ -46,21 +30,33 @@
             <input type="number" id="numberOfPages" class="form-control" th:field="*{numberOfPages}" />
         </div>
 
-        <div class="form-group">
-            <label for="writer" class="control-label">Writer id</label>
-            <input type="number" id="writer" class="form-control" th:field="*{writer}" />
+        <div class="form-group" >
+            <label for="writer" class="control-label">Writer</label>
+            <select th:items="*{writer}" id="writer">
+                <option th:each="writer : ${listWriters}"
+                        th:value="${writer.getId()}"
+                        th:text="${writer.getName()}" />
+            </select>
         </div>
 
-        <button type="submit" class="btn btn-info col-2">Save </button>
+        <div class="form-group">
+            <label for="genre" class="control-label">Genre</label>
+            <select th:field="*{genre}" id="genre">
+                <option th:value="'Psychological'" th:text="Psychological"></option>
+                <option th:value="'Philosophy'" th:text="Philosophy"></option>
+                <option th:value="'History'" th:text="History"></option>
+                <option th:value="'Travel'" th:text="Travel"></option>
+                <option th:value="'Novel'" th:text="Novel"></option>
+            </select>
+        </div>
 
+        <button type="submit" class="btn btn-info col-2"> Save Employee</button>
     </form>
 
     <hr>
 
-    <a th:href="@{/book}"> Back to Employee List</a>
-
+    <a th:href="@{/}"> Back to Employee List</a>
 </div>
-
-
 </body>
+
 </html>
