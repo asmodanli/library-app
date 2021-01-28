@@ -47,7 +47,8 @@
     </div>
 
     <div sec:authorize="hasRole('ROLE_USER')">
-        <p>This content is only shown to users</p>
+        <span><a href="/" th:href="@{/user/listBooks}">Click here </a>for see books</span>
+
     </div>
 
 </div>
