@@ -43,4 +43,10 @@ public class BookServiceImpl implements BookService{
         this.bookRepository.deleteById(id);
     }
 
+    @Override
+    public List<Book> findByIsbn(String isbn) {
+        return bookRepository.findByIsbn(isbn);
+    }
+
+
 }
