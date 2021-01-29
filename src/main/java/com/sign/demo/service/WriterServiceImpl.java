@@ -17,4 +17,9 @@ public class WriterServiceImpl implements WriterService{
     public List<Writer> getAllWriters() {
         return writerRepository.findAll();
     }
+
+    @Override
+    public void saveWriter(Writer writer) {
+        this.writerRepository.save(writer);
+    }
 }
