@@ -25,9 +25,8 @@ public class Book {
     @Column(name = "number_of_pages")
     private int numberOfPages;
 
-    @ManyToOne(cascade = {
-            CascadeType.DETACH, CascadeType.MERGE,
-            CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "writer_id")
     private Writer writer;
 

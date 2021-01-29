@@ -20,7 +20,7 @@ public class Writer {
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "writer", cascade = {
             CascadeType.DETACH, CascadeType.MERGE,
-            CascadeType.REFRESH})
+            CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Book> books;
 
     public int getId() {
