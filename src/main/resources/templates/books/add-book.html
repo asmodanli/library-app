@@ -32,7 +32,8 @@
 
         <div class="form-group" >
             <label for="writer" class="control-label">Writer</label>
-            <select th:items="*{writer}" id="writer">
+            <select th:field="*{writer}" id="writer">
+
                 <option th:each="writer : ${listWriters}"
                         th:value="${writer.getId()}"
                         th:text="${writer.getName()}" />
@@ -58,5 +59,4 @@
     <a th:href="@{/}"> Back to Employee List</a>
 </div>
 </body>
-
 </html>
