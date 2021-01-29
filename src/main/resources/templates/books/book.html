@@ -12,6 +12,8 @@
 
         <a th:href="@{/admin/showNewBookForm}" class="btn btn-primary btn-sm mb-3"> Add New Book </a>
 
+        <a th:href="@{/admin/show-writer-form}" class="btn btn-primary btn-sm mb-3">Save Writer</a>
+
         <form th:action="@{/admin/listBooks}">
             Filter: <input type="text" name="isbn" id="isbn" size="50" th:value="${isbn}"  />
             &nbsp;
@@ -27,7 +29,7 @@
                     <th>ISBN</th>
                     <th>Genre</th>
                     <th>Page Number</th>
-                    <th>Writer id</th>
+                    <th>Writer</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +38,7 @@
                     <td th:text="${book.isbn}"></td>
                     <td th:text="${book.genre}"></td>
                     <td th:text="${book.numberOfPages}"></td>
+                    <td th:text="${book.writer.getName()}"></td>
                     <td>
                         <a th:href="@{/admin/showFormForUpdate/{id}(id=${book.id})}" class="btn btn-primary">Update</a>
                         <a th:href="@{/admin/deleteBook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>
