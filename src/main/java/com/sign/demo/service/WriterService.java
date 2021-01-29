@@ -5,5 +5,6 @@ import com.sign.demo.entity.Writer;
 import java.util.List;
 
 public interface WriterService {
-    public List<Writer> getAllWriters();
+    List<Writer> getAllWriters();
+    void saveWriter(Writer writer);
 }
