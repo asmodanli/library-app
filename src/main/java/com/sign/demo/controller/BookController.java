@@ -49,15 +49,28 @@ public class BookController {
 
     @PostMapping("/saveBook")
     public String saveBook(@ModelAttribute("book") Book theBook) {
-
         bookService.saveBook(theBook);
         return  "redirect:/admin/listBooks";
+    }
+
+    @GetMapping("/show-writer-form")
+    public String showNewWriterForm(Model model) {
+        Writer writer = new Writer();
+        model.addAttribute("writer", writer);
+        return "books/add-writer";
+    }
+
+    @PostMapping("/save-writer")
+    public String saveWriter(@ModelAttribute("writer") Writer writer) {
+        writerService.saveWriter(writer);
+        return "redirect:/admin/listBooks";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") int id, Model model) {
         Book book = bookService.getBookById(id);
         model.addAttribute("book", book);
+        model.addAttribute("listWriters", writerService.getAllWriters());
 
         return "books/update-book";
     }
@@ -69,6 +82,7 @@ public class BookController {
 
         return "redirect:/admin/listBooks";
     }
+
 
 
 
